@@ -63,14 +63,14 @@ module NestedHstore
           end
           hash
       end
-      deserialized
+      deserialized.with_indifferent_access
     end
 
     private
 
     def hash_to_hstore(type, hash)
       return {} if type == :hash && hash.blank?
-      
+
       hstore = hash.dup
       hstore.each do |k, v|
         if v.is_a?(Array) || v.is_a?(Hash)
