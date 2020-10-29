@@ -21,7 +21,7 @@ describe ActiveRecord::Coders::NestedHstore do
         post = Post.new(properties: value)
         post.save!
         post.reload
-        post.properties.should == value
+        expect(post.properties).to eq(value)
       end
     end
   end

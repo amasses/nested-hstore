@@ -5,12 +5,12 @@ describe NestedHstore::Serializer do
 
   def it_serializes
     serialized = serializer.serialize(@deserialized)
-    serialized.should == @serialized
+    expect(serialized).to eq(@serialized)
   end
 
   def it_deserializes
     deserialized = serializer.deserialize(@serialized)
-    deserialized.should == @deserialized
+    expect(deserialized).to eq(@deserialized)
   end
 
   context 'with a nested hash' do
