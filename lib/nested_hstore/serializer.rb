@@ -117,13 +117,13 @@ module NestedHstore
       is_json = (value.start_with?('{') && value.end_with?('}')) ||
         (value.start_with?('[') && value.end_with?(']'))
       return value unless is_json
-      ActiveSupport::JSON.decode(value)
+      JSON.load(value)
     rescue
       value
     end
 
     def encode_json(value)
-      ActiveSupport::JSON.encode(value)
+      JSON.dump(value)
     end
   end
 end
